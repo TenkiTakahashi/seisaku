@@ -1,0 +1,33 @@
+
+<div>
+  <h2>News</h2>
+  {% for tweet in tweet_list %}
+  <div>
+    {{tweet.name}}:
+    {{tweet.message}}
+  </div>
+  {% endfor %}
+</div>
+{% if user.is_authenticated %}
+<div>
+  <h2>投稿</h2>
+  <form action="post/" method="POST">
+    {% csrf_token %}
+    <!-- ↓ これを追加 -->
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" name="name" />
+    </div>
+    <div>
+      <label for="message">Message:</label>
+      <input type="text" name="message" />
+    </div>
+    <div>
+      <label for="point">Point:</label>
+      <input type="number" name="point" />
+    </div>
+    <input type="submit" value="決定" /><br>
+    <a href="{% url 'photo:index' %}">トップに戻る</a>
+  </form>
+</div>
+{% endif %}

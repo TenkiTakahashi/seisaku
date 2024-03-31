@@ -1,0 +1,11 @@
+<h1>News</h1>
+
+<div>
+  <h2>Tweets</h2>
+  {% for tweet in tweet_list %}
+  <div>
+    {{tweet.name}}:
+    {{tweet.message}}
+  </div>
+  {% endfor %}
+</div>
